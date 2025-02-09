@@ -1,101 +1,119 @@
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { AlertTriangle, ArrowRight } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] flex items-center justify-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/fon.jpg?height=1080&width=1920"
+          alt="High Security Prison"
+          layout="fill"
+          objectFit="cover"
+          className="brightness-50"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">High Security Prison</h1>
+          <p className="text-xl md:text-2xl text-gray-200 mb-8">Обеспечение общественной безопасности с помощью безопасного заключения</p>
+          <Button asChild size="lg">
+            <Link href="/about">
+              Узнать больше <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Quick Info Section */}
+      <section className="py-16 bg-muted">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl">Максимальная безопасность</CardTitle>
+              </CardHeader>
+              <CardContent>Современная система содержания заключенных из группы риска.</CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl">Реабилитационные программы</CardTitle>
+              </CardHeader>
+              <CardContent>Комплексные программы, направленные на успешную реинтеграцию.</CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl">24/7 медицинская помощь</CardTitle>
+              </CardHeader>
+              <CardContent>Круглосуточные медицинские пункты для обеспечения здоровья заключенных.</CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="container">
+          <div className="bg-primary text-primary-foreground rounded-lg p-8 flex flex-col md:flex-row items-center justify-between">
+            <div className="mb-4 md:mb-0 md:mr-8">
+              <h2 className="text-2xl font-bold mb-2">Хотите вступить в ряды сотрудников?</h2>
+              <p>Оставьте заявку и узнайте всю необходимую информацию о процессе вступления.</p>
+            </div>
+            <Button asChild variant="secondary" size="lg">
+              <Link href="https://forum.arizona-rp.com/threads/9189227/">Подать заявку</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Updates */}
+      <section className="py-16 bg-muted">
+        <div className="container">
+          <h2 className="text-3xl font-bold mb-8">Последние Новости</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Новое меню в столовой</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Мы добавили больше разнообразных блюд, улучшили качество питания и внедрили новые диетические опции. Попробуй и оцени!
+                </p>
+                <Button variant="outline" asChild>
+                  <Link href="/visiting">Подробнее</Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Улучшение условий содержания</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">
+                  Мы модернизируем камеры, обновляем системы безопасности и делаем пребывание более комфортным. Ждём ваши отзывы!
+                </p>
+                <Button variant="outline" asChild>
+                  <Link href="/facilities">Узнать больше</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Emergency Notice */}
+      <section className="py-8 bg-destructive text-destructive-foreground">
+        <div className="container">
+          <div className="flex items-center justify-center">
+            <AlertTriangle className="mr-2 h-6 w-6" />
+            <p className="text-lg font-semibold">В экстренных случаях звоните на нашу круглосуточную горячую линию: @maksanchez</p>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
+
